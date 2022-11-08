@@ -22,17 +22,6 @@ class EditProfilePage_doc extends StatefulWidget {
 class _EditProfilePage_docState extends State<EditProfilePage_doc> {
   bool showPassword = false;
   CollectionReference users = FirebaseFirestore.instance.collection('Doctor');
-  // CollectionReference UT = FirebaseFirestore.instance.collection('Doc-list');
-  //
-  //
-  // Future<void> addUser() {
-  //   // Call the user's CollectionReference to add a new user
-  //   return UT.doc('100')
-  //       .update({
-  //     (FirebaseAuth.instance.currentUser?.uid).toString(): FirebaseAuth.instance.currentUser?.uid,
-  //   }).then((value) => print("User Added"))
-  //       .catchError((error) => print("Failed to add user: $error"));
-  // }
 
   String sp = "", nm = "", educ = "";
   double ct = 0;
@@ -162,12 +151,12 @@ class _EditProfilePage_docState extends State<EditProfilePage_doc> {
                   onChanged: (value) {
                     sp = value;
                   },
-                  decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.only(bottom: 3),
+                  decoration: const InputDecoration(
+                      contentPadding: EdgeInsets.only(bottom: 3),
                       labelText: "Specialisation",
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       // hintText: placeholder,
-                      labelStyle: const TextStyle(
+                      labelStyle: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
@@ -177,15 +166,17 @@ class _EditProfilePage_docState extends State<EditProfilePage_doc> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 35.0),
                 child: TextField(
+                  keyboardType: TextInputType.multiline,
+                  maxLines: null,
                   onChanged: (value) {
                     educ = value;
                   },
-                  decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.only(bottom: 3),
+                  decoration: const InputDecoration(
+                      contentPadding: EdgeInsets.only(bottom: 3),
                       labelText: "Educational Details",
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       // hintText: placeholder,
-                      labelStyle: const TextStyle(
+                      labelStyle: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
@@ -217,7 +208,7 @@ class _EditProfilePage_docState extends State<EditProfilePage_doc> {
                             fontSize: 14,
                             letterSpacing: 2.2,
                             //  fontWeight: FontWeight.bold,
-                            color: Colors.black)),
+                            color: Colors.white)),
                   ),
                   ElevatedButton(
                     onPressed: () async {
@@ -239,7 +230,7 @@ class _EditProfilePage_docState extends State<EditProfilePage_doc> {
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(horizontal: 40),
                       foregroundColor: Colors.white,
-                      backgroundColor: Colors.blue, // foreground
+                      backgroundColor: Colors.green, // foreground
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(20),

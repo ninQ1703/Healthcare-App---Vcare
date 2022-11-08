@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ooadproject/doctor/doc_prof.dart';
 import 'package:ooadproject/doctor/patient%20list/Patients.dart';

@@ -108,7 +108,7 @@ class _SignupPageState extends State<SignupPage> {
                 children: <Widget>[
                   TextField(
                     controller: _emailController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         labelText: 'EMAIL',
                         labelStyle: TextStyle(
                             fontFamily: 'Montserrat',
@@ -123,7 +123,7 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                   TextField(
                     controller: _passwordController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         labelText: 'PASSWORD',
                         labelStyle: TextStyle(
                             fontFamily: 'Montserrat',
@@ -134,14 +134,14 @@ class _SignupPageState extends State<SignupPage> {
                         )),
                     obscureText: true,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5.0,
                   ),
                   TextField(
                     onChanged: (value) {
                       ty = value;
                     },
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         labelText: 'Doctor/Patient',
                         labelStyle: TextStyle(
                             fontFamily: 'Montserrat',
@@ -151,7 +151,7 @@ class _SignupPageState extends State<SignupPage> {
                           borderSide: BorderSide(color: Colors.green),
                         )),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                   Container(
@@ -160,11 +160,6 @@ class _SignupPageState extends State<SignupPage> {
                       onPressed: () async {
                         _register(ty);
                       },
-                      child: const Text("SIGN UP",
-                          style: TextStyle(
-                              fontSize: 20,
-                              letterSpacing: 2.2,
-                              color: Colors.white)),
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(horizontal: 40),
                         foregroundColor: Colors.white,
@@ -175,9 +170,14 @@ class _SignupPageState extends State<SignupPage> {
                           ),
                         ),
                       ),
+                      child: const Text("SIGN UP",
+                          style: TextStyle(
+                              fontSize: 20,
+                              letterSpacing: 2.2,
+                              color: Colors.white)),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Row(
@@ -187,7 +187,7 @@ class _SignupPageState extends State<SignupPage> {
                         onTap: () {
                           Navigator.of(context).pop();
                         },
-                        child: Text('Go Back',
+                        child: const Text('Go Back',
                             style: TextStyle(
                                 color: Colors.blueGrey,
                                 fontFamily: 'Montserrat',

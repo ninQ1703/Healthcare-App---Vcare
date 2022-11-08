@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'dart:ui';
+import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flutter/material.dart';
 import 'package:ooadproject/Login-page.dart';
 import 'package:intl/intl.dart';
 
@@ -11,8 +14,9 @@ class Patient {
   List<prescription> presriptions = <prescription>[];
   List<appointmentDetails> Myappointments = <appointmentDetails>[];
   Image prfl = Image.asset("assets/images/imgdefault.png");
-  Patient.constructor1(this.name, this.phno, this.email, this.prfl,this.age,this.gender);
-  Patient.constructor2(this.name, this.phno, this.email,this.age,this.gender);
+  Patient.constructor1(
+      this.name, this.phno, this.email, this.prfl, this.age, this.gender);
+  Patient.constructor2(this.name, this.phno, this.email, this.age, this.gender);
 
   void addPrescription(prescription p) {
     presriptions.add(p);
@@ -32,9 +36,10 @@ class Doctor {
   Image prfl = Image.asset("assets/images/imgdefault.png");
   List<appointmentDetails> requestlist = <appointmentDetails>[];
   List<appointmentDetails> MyAppointments = <appointmentDetails>[];
-  Doctor.constructor1(
-      this.name, this.phno, this.Specialisation, this.email, this.prfl, this.educ_det);
-  Doctor.constructor2(this.name, this.phno, this.Specialisation, this.email, this.educ_det);
+  Doctor.constructor1(this.name, this.phno, this.Specialisation, this.email,
+      this.prfl, this.educ_det);
+  Doctor.constructor2(
+      this.name, this.phno, this.Specialisation, this.email, this.educ_det);
 
   void addrequest(appointmentDetails req) {
     requestlist.add(req);
@@ -104,142 +109,156 @@ class appointmentDetails {
   }
 }
 
-// ignore: camel_case_types
-class Welcome extends StatefulWidget {
-  const Welcome({Key? key}) : super(key: key);
+class WelcomePage extends StatefulWidget {
+  const WelcomePage({super.key});
 
   @override
-  State<Welcome> createState() => WelcomeState();
+  State<WelcomePage> createState() => _WelcomePageState();
 }
 
-// ignore: camel_case_types
-class WelcomeState extends State<Welcome> {
+class _WelcomePageState extends State<WelcomePage> {
   Doctor doc = Doctor.constructor2(
-      "Dr Komal Gupta", "8765433456", "Psychiatrist", "kgupta@gmail.com",
-        Text("MBBS,"
-            "AIIMS Rishikesh")
-  );
-  Patient patient =
-      Patient.constructor2("Ajay Verma", "9873234553", "ajv@gmail.com","25","Male");
+      "Dr Archana Joshi",
+      "8765433456",
+      "Psychiatrist",
+      "ajoshi@gmail.com",
+      Text("MBBS, AIIMS Rishikesh"
+          "MD, CMC Vellore"
+          "DPM, Central Institute of Psychiatry, Ranchi"));
+  Patient patient = Patient.constructor2(
+      "Ajay Verma", "9873234553", "ajv@gmail.com", "25", "Male");
   DateFormat dateDisplay = DateFormat("MMMM dd, yyyy");
   DateFormat timeDisplay = DateFormat("hh : mm  a");
   @override
   void initState() {
     // TODO: implement initState
     getAppointmentList(doc);
-    super.initState();
   }
 
   Widget build(BuildContext context) {
-    // var size = MediaQuery.of(context).size;
-    var cardTextStyle = const TextStyle(
-        fontFamily: 'AbrilFatface Regular', fontSize: 20, color: Colors.black);
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.blue,
-          title: const Text("Sign in"),
-          // Theme.of(context).scaffoldBackgroundColor,
-          elevation: 3,
-          leading: IconButton(
-            icon: const Icon(
-              Icons.arrow_back,
-              color: Colors.white,
+      backgroundColor: Colors.white,
+      body: Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/images/appicon.jpg'),
+                fit: BoxFit.cover)),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+          child: Center(
+              child: Container(
+            width: double.maxFinite,
+            height: 100,
+            color: Colors.white,
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    'VCare',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      shadows: [
+                        Shadow(
+                          offset: Offset(2.0, 2.0),
+                          blurRadius: 6.0,
+                          color: Colors.black.withOpacity(0.8),
+                        ),
+                      ],
+                      fontWeight: FontWeight.bold,
+                      fontSize: 35,
+                      color: Color.fromARGB(255, 0, 0, 0),
+                    ),
+                  ),
+                  Text(
+                    'Because We Care',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      shadows: [
+                        Shadow(
+                          offset: Offset(2.0, 2.0),
+                          blurRadius: 6.0,
+                          color: Colors.green,
+                        ),
+                      ],
+                      // fontWeight: FontWeight.bold,
+                      fontSize: 25,
+                      color: Color.fromARGB(255, 0, 0, 0),
+                    ),
+                  ),
+                ]),
+          )),
+        ),
+      ),
+      bottomNavigationBar: Material(
+        color: Colors.white,
+        child: InkWell(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => MyApp1(patient: patient, doc: doc)));
+          },
+          child: const SizedBox(
+            height: kToolbarHeight,
+            width: double.infinity,
+            child: Center(
+              child: Text(
+                'Continue',
+                style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  color: Color.fromARGB(255, 76, 175, 116),
+                  fontSize: 20,
+                  fontWeight: FontWeight.w900,
+                ),
+              ),
             ),
-            onPressed: () => Navigator.of(context).pop(),
           ),
         ),
-        body: Stack(children: <Widget>[
-          // const SizedBox(
-          //   height: double.infinity,
-          //   width: double.infinity,
-          // ),
-          SafeArea(
-              child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              children: <Widget>[
-                const SizedBox(
-                  height: 40,
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
-                OutlinedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                MyApp1(patient: patient, doc: doc)));
-                  },
-                  style: OutlinedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(horizontal: 50),
-                      backgroundColor: Color.fromARGB(77, 156, 227, 247),
-                      minimumSize: Size(500, 50),
-                      side: const BorderSide(
-                          color: Color.fromARGB(84, 33, 149, 243), width: 1)),
-                  child: const Padding(
-                    padding: EdgeInsets.all(15),
-                    child: Text('Welcome!!',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            // height: 2,
-                            fontSize: 20,
-                            letterSpacing: 1,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 12, 12, 12))),
-                  ),
-                ),
-              ],
-            ),
-          ))
-        ]));
-  }
-
-  Doctor getDoctor() {
-    return doc;
+      ),
+    );
   }
 
   void getAppointmentList(Doctor doc) {
-    Patient p1 =
-        Patient.constructor2("Mehak Sharma", "9876543256", "msharma@gmail.com","18","Female");
+    Patient p1 = Patient.constructor2(
+        "Raj Agarwal", "9876543256", "ragarwal@gmail.com", "18", "Male");
     doc.addrequest(appointmentDetails.constructor(p1, doc,
-        DateTime(2022, 11, 8, 9, 0, 0), DateTime(2022, 11, 8, 10, 0, 0)));
+        DateTime(2022, 11, 10, 9, 0, 0), DateTime(2022, 11, 10, 10, 0, 0)));
     // Patient p0 =
     //     (Patient.constructor2("Neha Gujar", "9876543467", "ngujar@gmail.com"));
     doc.addrequest(appointmentDetails.constructor(patient, doc,
-        DateTime(2022, 11, 8, 11, 0, 0), DateTime(2022, 11, 8, 12, 0, 0)));
-    Patient p2 = Patient.constructor2(
-        "Manashree Kalode", "9567898954", "mKalode@gmail.com","18","Female");
-    doc.addrequest(appointmentDetails.constructor(p2, doc,
-        DateTime(2022, 11, 8, 17, 0, 0), DateTime(2022, 11, 8, 18, 0, 0)));
-    Patient p3 = (Patient.constructor2(
-        "Nishita Singh", "9845766356", "nSingh@gmail.com","18","Female"));
-    doc.addrequest(appointmentDetails.constructor(p3, doc,
-        DateTime(2022, 11, 9, 10, 0, 0), DateTime(2022, 11, 9, 11, 0, 0)));
-    Patient p4 = (Patient.constructor2(
-        "Kashish Prakash", "9876545677", "kPrakash@gmail.com","18","Female"));
-    doc.addrequest(appointmentDetails.constructor(p4, doc,
-        DateTime(2022, 11, 9, 14, 0, 0), DateTime(2022, 11, 9, 15, 0, 0)));
-    Patient p5 = (Patient.constructor2(
-        "Akansha Swati", "9899765446", "ASwati@gmail.com","18","Female"));
-    doc.addrequest(appointmentDetails.constructor(p5, doc,
-        DateTime(2022, 11, 10, 10, 0, 0), DateTime(2022, 11, 10, 11, 0, 0)));
-    Patient p6 = (Patient.constructor2(
-        "Aarya Aggarwal", "8897553256", "aAgarwal@gmail.com","18","Female"));
-    doc.addrequest(appointmentDetails.constructor(p6, doc,
         DateTime(2022, 11, 10, 11, 0, 0), DateTime(2022, 11, 10, 12, 0, 0)));
-    Patient p7 = (Patient.constructor2(
-        "Shinjan Chaturvedi", "7875443256", "sChaturvedi@gmail.com","18","Female"));
-    doc.addrequest(appointmentDetails.constructor(p7, doc,
-        DateTime(2022, 11, 12, 9, 0, 0), DateTime(2022, 11, 12, 10, 0, 0)));
-    Patient p8 = (Patient.constructor2(
-        "Shreya Shivkumar", "9777273356", "sShivkumar@gmail.com","18","Female"));
-    doc.addrequest(appointmentDetails.constructor(p8, doc,
-        DateTime(2022, 11, 11, 12, 0, 0), DateTime(2022, 11, 11, 13, 0, 0)));
-    Patient p9 = (Patient.constructor2(
-        "Prerna Chandolia", "9876543256", "pChandolia@gmail.com","18","Female"));
-    doc.addrequest(appointmentDetails.constructor(p9, doc,
+    Patient p2 = Patient.constructor2(
+        "Sunidhi Kumar", "9567898954", "skumar@gmail.com", "18", "Female");
+    doc.addrequest(appointmentDetails.constructor(p2, doc,
+        DateTime(2022, 11, 10, 17, 0, 0), DateTime(2022, 11, 10, 18, 0, 0)));
+    Patient p3 = (Patient.constructor2(
+        "Harish Singh", "9845766356", "hsingh@gmail.com", "18", "Male"));
+    doc.addrequest(appointmentDetails.constructor(p3, doc,
         DateTime(2022, 11, 11, 10, 0, 0), DateTime(2022, 11, 11, 11, 0, 0)));
+    Patient p4 = (Patient.constructor2(
+        "Kapil Jain", "9876545677", "kjain@gmail.com", "18", "Male"));
+    doc.addrequest(appointmentDetails.constructor(p4, doc,
+        DateTime(2022, 11, 11, 14, 0, 0), DateTime(2022, 11, 11, 15, 0, 0)));
+    Patient p5 = (Patient.constructor2(
+        "Kriti Mehta", "9899765446", "kmehta@gmail.com", "18", "Female"));
+    doc.addrequest(appointmentDetails.constructor(p5, doc,
+        DateTime(2022, 11, 12, 10, 0, 0), DateTime(2022, 11, 12, 11, 0, 0)));
+    Patient p6 = (Patient.constructor2(
+        "Shiv Patel", "8897553256", "apatel@gmail.com", "18", "Male"));
+    doc.addrequest(appointmentDetails.constructor(p6, doc,
+        DateTime(2022, 11, 12, 11, 0, 0), DateTime(2022, 11, 12, 12, 0, 0)));
+    Patient p7 = (Patient.constructor2(
+        "Bhav Vaibhav", "7875443256", "bvaibhav@gmail.com", "18", "Male"));
+    doc.addrequest(appointmentDetails.constructor(p7, doc,
+        DateTime(2022, 11, 13, 9, 0, 0), DateTime(2022, 11, 13, 10, 0, 0)));
+    Patient p8 = (Patient.constructor2(
+        "Aziz Khan", "9777273356", "akhan@gmail.com", "18", "Male"));
+    doc.addrequest(appointmentDetails.constructor(p8, doc,
+        DateTime(2022, 11, 14, 12, 0, 0), DateTime(2022, 11, 14, 13, 0, 0)));
+    Patient p9 = (Patient.constructor2(
+        "Priya Wangdu", "9876543256", "pwangdu@gmail.com", "18", "Female"));
+    doc.addrequest(appointmentDetails.constructor(p9, doc,
+        DateTime(2022, 11, 14, 10, 0, 0), DateTime(2022, 11, 14, 11, 0, 0)));
   }
 }

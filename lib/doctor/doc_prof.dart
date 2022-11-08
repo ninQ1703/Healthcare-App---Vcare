@@ -174,12 +174,12 @@ class _viewDocProfState extends State<viewDocProf> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Padding(
-                                  padding: const EdgeInsets.only(right: 120.0),
+                              const Padding(
+                                  padding: EdgeInsets.only(right: 120.0),
                                   child: Text('Educational Details',
                                       style: TextStyle(
                                           height: 2,
-                                          color: Colors.grey[800],
+                                          color: Colors.black,
                                           fontWeight: FontWeight.bold,
                                           fontSize: 18),
                                       textAlign: TextAlign.left)),
