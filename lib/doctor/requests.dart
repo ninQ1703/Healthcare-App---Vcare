@@ -21,7 +21,9 @@ class _MyRequestsState extends State<MyRequests> {
     Doctor doc = widget.doc;
 
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 216, 240, 209),
         appBar: AppBar(
+          backgroundColor: Colors.green,
           title: Text("Appointment Requests"),
         ),
         body: ListView.builder(

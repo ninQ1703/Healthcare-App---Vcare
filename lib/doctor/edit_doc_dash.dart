@@ -41,8 +41,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
   Widget build(BuildContext context) {
     Doctor doc = widget.doc;
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 216, 240, 209),
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.green,
         title: const Text("My Profile"),
         // Theme.of(context).scaffoldBackgroundColor,
         elevation: 3,
@@ -203,13 +204,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 children: [
                   ElevatedButton(
                     onPressed: () async {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => HomeScreen_doc(doc: doc)),
-                      );
+                      Navigator.pop(context);
                     },
                     style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20))),
@@ -218,7 +216,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             fontSize: 14,
                             letterSpacing: 2.2,
                             //  fontWeight: FontWeight.bold,
-                            color: Colors.black)),
+                            color: Colors.white)),
                   ),
                   ElevatedButton(
                     onPressed: () async {
@@ -241,7 +239,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(horizontal: 40),
                       foregroundColor: Colors.white,
-                      backgroundColor: Colors.blue, // foreground
+                      backgroundColor: Colors.green, // foreground
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(20),

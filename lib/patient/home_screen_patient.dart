@@ -59,6 +59,7 @@ class _HomeScreen_patientState extends State<HomeScreen_patient> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           const CircleAvatar(
+                              backgroundColor: Colors.white,
                               radius: 32,
                               backgroundImage:
                                   AssetImage("assets/images/imgdefault.png")),
@@ -92,7 +93,7 @@ class _HomeScreen_patientState extends State<HomeScreen_patient> {
                                             style: TextStyle(
                                                 fontFamily:
                                                     'AbrilFatface Regular',
-                                                color: Colors.black54)),
+                                                color: Colors.black)),
                                       ]);
                                 }
                                 return Text("loading");
@@ -126,7 +127,7 @@ class _HomeScreen_patientState extends State<HomeScreen_patient> {
                                 children: <Widget>[
                                   Expanded(
                                     child: Image.asset(
-                                      'assets/images/imgcalendar.png',
+                                      'assets/images/gc.png',
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -158,7 +159,7 @@ class _HomeScreen_patientState extends State<HomeScreen_patient> {
                                   children: <Widget>[
                                     Expanded(
                                       child: Image.asset(
-                                        'assets/images/imgfolder.png',
+                                        'assets/images/mfolder.png',
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -191,7 +192,7 @@ class _HomeScreen_patientState extends State<HomeScreen_patient> {
                                 children: <Widget>[
                                   Expanded(
                                     child: Image.asset(
-                                      'assets/images/imglist.png',
+                                      'assets/images/plist.png',
                                       fit: BoxFit.cover,
                                     ),
                                   ),

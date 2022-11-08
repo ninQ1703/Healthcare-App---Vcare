@@ -22,9 +22,10 @@ class _viewPatientProfileState extends State<viewPatientProfile> {
           child: VerticalDivider(),
         );
     return Scaffold(
+        backgroundColor: Color.fromARGB(255, 216, 240, 209),
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.green,
           title: const Text("Profile"),
           // Theme.of(context).scaffoldBackgroundColor,
           elevation: 3,
@@ -58,20 +59,21 @@ class _viewPatientProfileState extends State<viewPatientProfile> {
                 width: 130,
                 height: 130,
                 decoration: BoxDecoration(
-                    border: Border.all(
-                        width: 1,
-                        color: Theme.of(context).scaffoldBackgroundColor),
-                    boxShadow: [
-                      BoxShadow(
-                          spreadRadius: 2,
-                          // blurRadius: ,
-                          color: Colors.black.withOpacity(0.1),
-                          offset: const Offset(0, 10))
-                    ],
-                    shape: BoxShape.circle,
-                    image: const DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage("assets/images/imgdefault.png"))),
+                            color: Colors.white,
+                            border: Border.all(width: 1, color: Colors.black),
+                            // boxShadow: [
+                            //   BoxShadow(
+                            //       spreadRadius: 2,
+                            //       // blurRadius: ,
+                            //       color: Colors.black.withOpacity(0.1),
+                            //       offset: const Offset(0, 10))
+                            // ],
+                            shape: BoxShape.circle,
+                            image: const DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage(
+                                  'assets/images/imgdefault.png',
+                                ))),
               ),
 
               Text(

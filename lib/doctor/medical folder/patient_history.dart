@@ -26,6 +26,7 @@ class _patient_historyState extends State<patient_history> {
     return DefaultTabController(
         length: 2,
         child: Scaffold(
+          backgroundColor: Color.fromARGB(255, 216, 240, 209),
           appBar: AppBar(
             bottom: const TabBar(tabs: [
               Tab(text: "Prescription"),

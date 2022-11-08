@@ -23,9 +23,10 @@ class _viewDocProfState extends State<viewDocProf> {
         );
 
     return Scaffold(
+        backgroundColor: Color.fromARGB(255, 216, 240, 209),
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.green,
           title: const Text("Profile"),
           // Theme.of(context).scaffoldBackgroundColor,
           elevation: 3,
@@ -48,17 +49,15 @@ class _viewDocProfState extends State<viewDocProf> {
                         width: 130,
                         height: 130,
                         decoration: BoxDecoration(
-                            border: Border.all(
-                                width: 1,
-                                color:
-                                    Theme.of(context).scaffoldBackgroundColor),
-                            boxShadow: [
-                              BoxShadow(
-                                  spreadRadius: 2,
-                                  // blurRadius: ,
-                                  color: Colors.black.withOpacity(0.1),
-                                  offset: const Offset(0, 10))
-                            ],
+                            color: Colors.white,
+                            border: Border.all(width: 1, color: Colors.black),
+                            // boxShadow: [
+                            //   BoxShadow(
+                            //       spreadRadius: 2,
+                            //       // blurRadius: ,
+                            //       color: Colors.black.withOpacity(0.1),
+                            //       offset: const Offset(0, 10))
+                            // ],
                             shape: BoxShape.circle,
                             image: const DecorationImage(
                                 fit: BoxFit.cover,
@@ -100,6 +99,9 @@ class _viewDocProfState extends State<viewDocProf> {
                                         color: Color.fromARGB(255, 0, 0, 0),
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20),
+                                  ),
+                                  const SizedBox(
+                                    height: 20,
                                   ),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -149,7 +151,7 @@ class _viewDocProfState extends State<viewDocProf> {
                                   fontSize: 17,
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.bold,
-                                  color: Color.fromARGB(255, 12, 12, 12))),
+                                  color: Colors.white)),
                         ),
                       ),
                       const SizedBox(

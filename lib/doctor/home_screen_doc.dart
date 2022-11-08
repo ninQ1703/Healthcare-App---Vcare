@@ -10,7 +10,6 @@ import 'package:ooadproject/doctor/schedule.dart';
 import 'package:ooadproject/doctor/requests.dart';
 import 'package:ooadproject/welcome.dart';
 
-
 class HomeScreen_doc extends StatefulWidget {
   HomeScreen_doc({super.key, required this.doc});
   Doctor doc;
@@ -21,16 +20,17 @@ class HomeScreen_doc extends StatefulWidget {
 class _HomeScreen_docState extends State<HomeScreen_doc> {
   CollectionReference users = FirebaseFirestore.instance.collection('Doctor');
   static const IconData power_settings_new =
-  IconData(0xe4e3, fontFamily: 'MaterialIcons');
+      IconData(0xe4e3, fontFamily: 'MaterialIcons');
   @override
   Widget build(BuildContext context) {
     Doctor doc = widget.doc;
     var cardTextStyle = TextStyle(
         fontFamily: 'AbrilFatface Regular', fontSize: 20, color: Colors.black);
     return Scaffold(
+        backgroundColor: Color.fromARGB(255, 216, 240, 209),
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.green,
           title: const Text("VCARE : Doctor Portal"),
           elevation: 3,
         ),
@@ -58,9 +58,10 @@ class _HomeScreen_docState extends State<HomeScreen_doc> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           const CircleAvatar(
-                            radius: 32,
-                            backgroundImage: AssetImage("assets/images/imgdefault.png")
-                          ),
+                              backgroundColor: Colors.white,
+                              radius: 32,
+                              backgroundImage:
+                                  AssetImage("assets/images/imgdefault.png")),
                           const SizedBox(
                             width: 16,
                           ),
@@ -71,22 +72,28 @@ class _HomeScreen_docState extends State<HomeScreen_doc> {
                                   .get(),
                               builder: (BuildContext context,
                                   AsyncSnapshot<DocumentSnapshot> snapshot) {
-                                if (snapshot.connectionState == ConnectionState.done) {
-                                  Map<String, dynamic> data =
-                                  snapshot.data!.data() as Map<String, dynamic>;
+                                if (snapshot.connectionState ==
+                                    ConnectionState.done) {
+                                  Map<String, dynamic> data = snapshot.data!
+                                      .data() as Map<String, dynamic>;
                                   return Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: <Widget>[
-                                        Text( data['Name'],
+                                        Text(data['Name'],
                                             style: TextStyle(
-                                                fontFamily: 'AbrilFatface Regular',
+                                                fontFamily:
+                                                    'AbrilFatface Regular',
                                                 color: Colors.black87,
                                                 fontSize: 20)),
                                         Text(data['Email'],
                                             style: TextStyle(
-                                                fontFamily: 'AbrilFatface Regular',
-                                                color: Colors.black54)),
+                                                fontFamily:
+                                                    'AbrilFatface Regular',
+                                                color: Color.fromARGB(
+                                                    183, 0, 0, 0))),
                                       ]);
                                 }
                                 return Text("loading");
@@ -120,7 +127,7 @@ class _HomeScreen_docState extends State<HomeScreen_doc> {
                                 children: <Widget>[
                                   Expanded(
                                     child: Image.asset(
-                                      'assets/images/imgdoctor.png',
+                                      'assets/images/doctor.png',
                                       // height: 100.0,
                                       fit: BoxFit.cover,
                                     ),
@@ -161,7 +168,7 @@ class _HomeScreen_docState extends State<HomeScreen_doc> {
                                   children: <Widget>[
                                     Expanded(
                                       child: Image.asset(
-                                        'assets/images/imgpatients.jpg',
+                                        'assets/images/customer.png',
                                         // height: 100.0,
                                         fit: BoxFit.cover,
                                       ),
@@ -204,7 +211,7 @@ class _HomeScreen_docState extends State<HomeScreen_doc> {
                                   children: <Widget>[
                                     Expanded(
                                       child: Image.asset(
-                                        'assets/images/imgcalender.jpg',
+                                        'assets/images/gc.png',
                                         // height: 100.0,
                                         fit: BoxFit.cover,
                                       ),
@@ -246,7 +253,7 @@ class _HomeScreen_docState extends State<HomeScreen_doc> {
                                   children: <Widget>[
                                     Expanded(
                                       child: Image.asset(
-                                        'assets/images/imgrequests.png',
+                                        'assets/images/check.png',
                                         // height: 100.0,
                                         fit: BoxFit.cover,
                                       ),

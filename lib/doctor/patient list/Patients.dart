@@ -22,6 +22,7 @@ class _PatientsState extends State<Patients> {
   Widget build(BuildContext context) {
     Doctor doc = widget.doc;
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 216, 240, 209),
         appBar: AppBar(
           title: Text("My Patients"),
           automaticallyImplyLeading: false,

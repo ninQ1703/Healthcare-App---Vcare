@@ -26,7 +26,7 @@ class _viewPatProfState extends State<viewPatProf> {
         );
 
     return Scaffold(
-      backgroundColor:  Color.fromARGB(255, 216, 240, 209),
+        backgroundColor: Color.fromARGB(255, 216, 240, 209),
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
           backgroundColor: Colors.green,
@@ -52,17 +52,15 @@ class _viewPatProfState extends State<viewPatProf> {
                         width: 130,
                         height: 130,
                         decoration: BoxDecoration(
-                            border: Border.all(
-                                width: 1,
-                                color:
-                                    Theme.of(context).scaffoldBackgroundColor),
-                            boxShadow: [
-                              BoxShadow(
-                                  spreadRadius: 2,
-                                  // blurRadius: ,
-                                  color: Colors.black.withOpacity(0.1),
-                                  offset: const Offset(0, 10))
-                            ],
+                            color: Colors.white,
+                            border: Border.all(width: 1, color: Colors.black),
+                            // boxShadow: [
+                            //   BoxShadow(
+                            //       spreadRadius: 2,
+                            //       // blurRadius: ,
+                            //       color: Colors.black.withOpacity(0.1),
+                            //       offset: const Offset(0, 10))
+                            // ],
                             shape: BoxShape.circle,
                             image: const DecorationImage(
                                 fit: BoxFit.cover,
@@ -178,7 +176,7 @@ class _viewPatProfState extends State<viewPatProf> {
                                   fontSize: 17,
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.bold,
-                                  color: Color.fromARGB(255, 12, 12, 12))),
+                                  color: Colors.white)),
                         ),
                       ),
                       const SizedBox(

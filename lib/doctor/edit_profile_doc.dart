@@ -9,8 +9,6 @@ import '../main.dart';
 import '../welcome.dart';
 // import 'package:ooadproject/home_screen.dart';
 
-
-
 class EditProfilePage_doc extends StatefulWidget {
   EditProfilePage_doc({super.key, required this.doc});
   Doctor doc;
@@ -36,15 +34,15 @@ class _EditProfilePage_docState extends State<EditProfilePage_doc> {
   //       .catchError((error) => print("Failed to add user: $error"));
   // }
 
-
-  String sp = "", nm = "",educ="";
+  String sp = "", nm = "", educ = "";
   double ct = 0;
   @override
   Widget build(BuildContext context) {
     Doctor doc = widget.doc;
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 216, 240, 209),
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.green,
         title: const Text("My Profile"),
         // Theme.of(context).scaffoldBackgroundColor,
         elevation: 3,
@@ -94,7 +92,8 @@ class _EditProfilePage_docState extends State<EditProfilePage_doc> {
                           shape: BoxShape.circle,
                           image: const DecorationImage(
                               fit: BoxFit.fill,
-                              image: AssetImage('assets/images/imgdefault.png'))),
+                              image:
+                                  AssetImage('assets/images/imgdefault.png'))),
                     ),
                     Positioned(
                         bottom: 0,
@@ -108,7 +107,7 @@ class _EditProfilePage_docState extends State<EditProfilePage_doc> {
                               width: 4,
                               color: Theme.of(context).scaffoldBackgroundColor,
                             ),
-                            color: Colors.blue,
+                            color: Colors.green,
                           ),
                           child: const Icon(
                             Icons.edit,
@@ -222,11 +221,7 @@ class _EditProfilePage_docState extends State<EditProfilePage_doc> {
                   ),
                   ElevatedButton(
                     onPressed: () async {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => HomeScreen_doc(doc: doc,)),
-                      );
+                      Navigator.pop(context);
                       //addUser();
                       // Call the user's CollectionReference to add a new user
                       return await users

@@ -50,22 +50,21 @@ class _viewDocProfileState extends State<viewDocProfile> {
                         width: 130,
                         height: 130,
                         decoration: BoxDecoration(
-                            border: Border.all(
-                                width: 1,
-                                color:
-                                    Theme.of(context).scaffoldBackgroundColor),
-                            boxShadow: [
-                              BoxShadow(
-                                  spreadRadius: 2,
-                                  // blurRadius: ,
-                                  color: Colors.black.withOpacity(0.1),
-                                  offset: const Offset(0, 10))
-                            ],
+                            color: Colors.white,
+                            border: Border.all(width: 1, color: Colors.black),
+                            // boxShadow: [
+                            //   BoxShadow(
+                            //       spreadRadius: 2,
+                            //       // blurRadius: ,
+                            //       color: Colors.black.withOpacity(0.1),
+                            //       offset: const Offset(0, 10))
+                            // ],
                             shape: BoxShape.circle,
                             image: const DecorationImage(
                                 fit: BoxFit.cover,
                                 image: AssetImage(
-                                    "assets/images/imgdefault.png"))),
+                                  'assets/images/imgdefault.png',
+                                ))),
                       ),
                       const SizedBox(
                         height: 30,

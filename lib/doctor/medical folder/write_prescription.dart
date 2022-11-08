@@ -23,6 +23,7 @@ class _write_prescriptionState extends State<write_prescription> {
     Patient patient = widget.patient;
     Doctor doc = widget.doc;
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 216, 240, 209),
       appBar: AppBar(
         title: Text("write new prescription"),
         automaticallyImplyLeading: false,
@@ -70,7 +71,7 @@ class _write_prescriptionState extends State<write_prescription> {
         )
       ]),
       bottomNavigationBar: Material(
-        color: Color.fromARGB(255, 71, 113, 253),
+        color: Colors.green,
         child: InkWell(
           onTap: () {
             prescription p = prescription(pres, doc, DateTime.now());

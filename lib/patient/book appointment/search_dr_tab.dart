@@ -103,7 +103,7 @@ class _search_docState extends State<search_doc> {
                             // height: 2,
                             fontSize: 20,
                             letterSpacing: 1,
-                            fontWeight: FontWeight.bold,
+                            // fontWeight: FontWeight.bold,
                             color: Colors.white)),
                   ),
                 ),
