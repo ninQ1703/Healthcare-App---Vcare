@@ -210,12 +210,16 @@ class _HomeScreen_patientState extends State<HomeScreen_patient> {
                             borderRadius: BorderRadius.circular(8)),
                         elevation: 4,
                         child: InkWell(
-                            onTap: () => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => viewPatProf(
-                                          doc: doc, patient: patient)),
-                                ),
+                            onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => viewPatProf(
+                                      patient: patient,
+                                      doc: doc))).then((value) {
+                            setState(() {});
+                          });
+                        },
                             child: Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 4),

@@ -110,12 +110,15 @@ class _HomeScreen_docState extends State<HomeScreen_doc> {
                             borderRadius: BorderRadius.circular(8)),
                         elevation: 4,
                         child: InkWell(
-                            onTap: () => Navigator.push(
+                            onTap: () {
+                              Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          viewDocProf(doc: doc)),
-                                ),
+                                          viewDocProf(doc: doc))).then((value) {
+                                setState(() {});
+                              });
+                            },
                             child: Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 40),
